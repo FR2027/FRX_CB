@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>FRX 量子方塊 v17.2.1</title>
+    <title>FRX CB | 量子方塊 v17.2.1</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
         :root { --neon: #8A2BE2; --neon-alt: #00ffff; }
@@ -32,12 +32,12 @@
 
     <div id="start-screen" class="overlay" onclick="handleStart()">
         <h1 style="letter-spacing:12px; color: var(--neon-alt); text-align:center; text-shadow: 0 0 20px var(--neon-alt);">FRX 量子方塊<br><span style="font-size:16px; letter-spacing:3px; color:white;">v17.2.1 旗艦版</span></h1>
-        <p style="animation: blink 1.5s infinite; margin-top:25px; font-size: 18px; color: #00ffff;">點擊螢幕展開量子穿梭</p>
+        <p style="animation: blink 1.5s infinite; margin-top:25px; font-size: 18px; color: #00ffff;">點擊螢幕展開量子穿梭 本遊戲為2025.12/7由FR科技公司製作 2026.10/5由FRX重新上架</p>
     </div>
 
     <div id="shop-menu">
         <h2 style="text-align:center; color:var(--neon-alt); text-shadow: 0 0 10px var(--neon-alt);">FRX 高階皮膚自定義系統</h2>
-        <div class="skin-section"><label>上傳專屬高質感貼圖</label><input type="file" id="img-upload" accept="image/*" onchange="uploadImage(this)" style="margin-top:8px; display:block;"></div>
+        <div class="skin-section"><label>上傳外觀</label><input type="file" id="img-upload" accept="image/*" onchange="uploadImage(this)" style="margin-top:8px; display:block;"></div>
         <div class="skin-section"><label>自定義發光核心顏色</label><input type="color" id="color-picker" value="#8A2BE2" onchange="setCustomColor(this.value)" style="margin-top:8px; display:block; width:100px; height:40px; border:none; background:none; cursor:pointer;"></div>
         <div class="skin-section"><label>極緻幻彩漸層預設</label><div class="skin-grid" id="grad-list"></div></div>
         <button class="primary" onclick="resumeGame()">套用設定並返回遊戲</button>
@@ -45,17 +45,17 @@
 
     <div id="death-screen" class="overlay" style="display:none;">
         <div class="panel">
-            <h2 style="color:#ff4444; text-shadow: 0 0 10px #ff4444;">量子連線中斷</h2>
+            <h2 style="color:#ff4444; text-shadow: 0 0 10px #ff4444;">連線中斷</h2>
             <p id="final-score" style="font-size:32px; margin: 25px 0; font-weight:bold;"></p>
-            <button class="primary" onclick="location.reload()">重新啟動核心</button>
+            <button class="primary" onclick="location.reload()">重新開始</button>
         </div>
     </div>
 
-    <div id="win-msg">恭喜通關！你已成功突破 FRX 終極量子核心！</div>
+    <div id="win-msg">你已成功突破 FRX 終極量子核心！</div>
     <div class="score-ui" id="ui-score">0</div>
     <button class="btn-pause" id="pause-btn" onclick="pauseGame()">||</button>
     
-    <button id="boost-btn">極速超載：OFF</button>
+    <button id="boost-btn">加速：OFF</button>
 
     <script>
         let scene, camera, renderer, player, animID;
@@ -134,10 +134,10 @@
                 
                 if(isBoosting) {
                     bBtn.classList.add('active-boost');
-                    bBtn.innerText = "極速超載：ON";
+                    bBtn.innerText = "加速：ON";
                 } else {
                     bBtn.classList.remove('active-boost');
-                    bBtn.innerText = "極速超載：OFF";
+                    bBtn.innerText = "加速：OFF";
                 }
             };
             
